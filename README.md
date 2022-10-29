@@ -23,4 +23,9 @@ Publishing onto public repo:
     helm package helm -d charts/
 2. Create a index.yaml for the charts folder so as to serve this as a repo: 
     helm repo index charts
+3. Push the changes to git repo and expose the repo to public so they can downlaod the helm chart and run it locally
+4. Add the exposed URL as the repo: 
+    helm repo add guthedar https://guthedar.github.io/library/charts/
+5. Install the helm chart as below: library is the name of the chart from index.yaml
+    helm install lib guthedar/library
 
