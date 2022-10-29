@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restapi
+  namespace: restapi
+spec:
+  podSelector:
+    matchLabels:
+      app: restapi
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: nginx1
+      ports:
+        - protocol: TCP
+          port: 8080
